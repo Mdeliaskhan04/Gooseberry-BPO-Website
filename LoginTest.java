@@ -28,7 +28,7 @@ public class LoginTest {
         System.out.println("Page Title: " + title);
         assert title.contains("Gooseberry BPO");
         System.out.println("The test cases has been passed");
-        Thread.sleep(5000);
+        Thread.sleep(1000);
     }
 
     @Test(priority = 2)
@@ -37,7 +37,7 @@ public class LoginTest {
         WebElement two=driver.findElement(By.linkText("Contact"));
         two.click();
         System.out.println("The test cases has been passed");
-        Thread.sleep(5000);
+        Thread.sleep(1000);
     }
 
     @Test(priority = 3)
@@ -46,13 +46,12 @@ public class LoginTest {
         WebElement three=driver.findElement(By.linkText("About us"));
         three.click();
         System.out.println("The test cases has been passed");
-        Thread.sleep(5000);
+        Thread.sleep(1000);
     }
 
     @AfterClass
     public void teardown() throws InterruptedException
     {
-        Thread.sleep(5000);
         driver.quit();
         System.out.println("Browser closed after 5 seconds");
     }
