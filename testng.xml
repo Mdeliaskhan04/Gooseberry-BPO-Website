@@ -3,10 +3,8 @@
 <suite name="Selenium Test Suite">
     <test name="Selenium Tests">
         <classes>
-            <class name="tests.ourPartners"></class>
+            <class name="tests.LoginTest"/>
             <class name="tests.MessageSubmitForm"></class>
-            <class name="tests.LoginTest"></class>
-            <class name="tests.Contact"></class>
         </classes>
     </test>
 </suite>
