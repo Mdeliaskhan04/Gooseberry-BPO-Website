@@ -1,0 +1,40 @@
+name: CI/CD for Gooseberry-BPO-Website (Testing Branch)
+
+on:
+  push:
+    branches:
+      - revert-1-Mdeliaskhan04-patch-1
+  pull_request:
+    branches:
+      - revert-1-Mdeliaskhan04-patch-1
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build Project (if needed)
+        run: |
+          if [ -f package.json ]; then
+            npm run build || echo "No build script found"
+          fi
+
+      - name: Run Tests (if exists)
+        run: |
+          if [ -f package.json ]; then
+            npm test || echo "No tests defined"
+          fi
+
+      - name: Deploy (Optional Placeholder)
+        run: echo "Deploy step (e.g., to FTP, SSH, Netlify, Vercel) goes here"
